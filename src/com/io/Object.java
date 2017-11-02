@@ -10,7 +10,7 @@ import java.util.List;
 import com.pojo.Student;
 
 /**
- * ĞòÁĞ»¯¶ÔÏó
+ * åºåˆ—åŒ–å¯¹è±¡
  * @author Domi
  *
  */
@@ -23,13 +23,14 @@ public class Object {
 	}
 	
 	/**
-	 * ¶ÁÈ¡ĞòÁĞ»¯¶ÔÏó
+	 * è¯»å–åºåˆ—åŒ–å¯¹è±¡
 	 */
 	public static void readObject() throws Exception{
 		
 		ObjectInputStream ois = null;
 		ois = new ObjectInputStream(new FileInputStream("object.txt"));
-		ArrayList<Student> studentlis = (ArrayList<Student>) ois.readObject();
+		ArrayList<Student> studentlis = (ArrayList<Student>) 
+		ois.readObject();
 		for(Student s:studentlis){
 			System.out.println(s.name+","+s.age);
 		}
@@ -39,7 +40,7 @@ public class Object {
 	
 	
 	/**
-	 * ±£´æĞòÁĞ»¯¶ÔÏó
+	 * ä¿å­˜åºåˆ—åŒ–å¯¹è±¡
 	 */
 	public static void writeObject() throws Exception{
 		
