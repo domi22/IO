@@ -1,25 +1,25 @@
-�ֽ������ļ���ͼƬ������
-ʹ���ֽ�����Ӧ�ó���������Ƕ�д�����ݶ�����Ҫת�����ַ���ʱ����ʹ���ֽ�����
+字节流：文件、图片、歌曲
+使用字节流的应用场景：如果是读写的数据都不需要转换成字符的时候，则使用字节流。
 
-�ֽ���������ԪΪ1���ֽڣ� �����ֽں��ֽ����顣����ֱ�Ӵ���Unicode�ַ�
-�ֽ����������κ����͵Ķ��󣬰��������ƶ����ַ���ֻ�ܴ����ַ������ַ���.
-����� ��Ƶ�ļ���ͼƬ�������������ֽ����õ�
-�ֽ����ڲ�����ʱ�����ǲ����õ����������ڴ棩�ģ������ļ�����ֱ�Ӳ�����
-�ֽ����ڲ����ļ�ʱ����ʹ���ر���Դ��close���������ļ�Ҳ�����
+字节流处理单元为1个字节， 操作字节和字节数组。不能直接处理Unicode字符
+字节流可用于任何类型的对象，包括二进制对象，字符流只能处理字符或者字符串.
+如果是 音频文件、图片、歌曲，就用字节流好点
+字节流在操作的时候本身是不会用到缓冲区（内存）的，是与文件本身直接操作的
+字节流在操作文件时，即使不关闭资源（close方法），文件也能输出
 
-�ַ�������ϵ������
-ʹ���ַ�����Ӧ�ó���������Ƕ�д�ַ����ݵ�ʱ����ʹ���ַ�����
+字符流：关系到中文
+使用字符流的应用场景：如果是读写字符数据的时候则使用字符流。
 
-�ַ��������ĵ�ԪΪ2���ֽڵ�Unicode�ַ����ֱ�����ַ����ַ�������ַ�����
-����ǹ�ϵ�����ģ��ı����ģ����ַ����õ�
-�ַ����ڲ�����ʱ����ʹ�õ���������
-����ʹ��close�����Ļ����򲻻�����κ����ݣ�˵���ַ����õ��ǻ����������ҿ���ʹ��flush   ����ǿ�ƽ���ˢ�»���������ʱ�����ڲ�close��������������
+字符流处理的单元为2个字节的Unicode字符，分别操作字符、字符数组或字符串。
+如果是关系到中文（文本）的，用字符流好点
+字符流在操作的时候是使用到缓冲区的
+流不使用close方法的话，则不会输出任何内容，说明字符流用的是缓冲区，并且可以使用flush   方法强制进行刷新缓冲区，这时才能在不close的情况下输出内容
 
-��Ҫ���������
-BufferedInputStream,   BufferedOutputStream,( �ֽ��� ) 
-BufferedReader,    BufferedWriter( �ַ��� )
+需要缓冲的流：
+BufferedInputStream,   BufferedOutputStream,( 字节流 ) 
+BufferedReader,    BufferedWriter( 字符流 )
 
-��Ҫ��װ��������
-BufferedReader��BufferedWriter
-ObjectInputStream �� ObjectOutputStream
-DataInputStream �� DataOutputStream
+需要封装基础流：（一般都是用File..流来封装，如FileInputStream,FileReader...）
+BufferedReader和BufferedWriter
+ObjectInputStream 和 ObjectOutputStream
+DataInputStream 和 DataOutputStream
